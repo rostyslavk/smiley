@@ -114,7 +114,8 @@ Ext.define('smiley360.view.OfferAcceptAddress', {
 						listeners: {
 							tap: function () {
 								Ext.getCmp('xOAView').hide();
-								Ext.widget('contactusview').show();
+								//Ext.widget('contactusview').show();
+								Ext.getCmp('xOfferView').fireEvent('LoadContactUsCommand', this);
 
 							}
 						}
@@ -171,7 +172,7 @@ Ext.define('smiley360.view.OfferAcceptAddress', {
 							Ext.getCmp('xOfferView').fireEvent('acceptMissionCommand', this, smiley360.memberData.UserId, smiley360.missionData.MissionDetails.MissionId);
 							//if accepted to go
 
-							
+
 							if (smiley360.missionData.MissionDetails.MissionDetails.mission_full) {
 								//if (Ext.widget('offeracceptview')) Ext.widget('offeracceptview').hide();
 								Ext.getCmp('xOAView').hide();
@@ -179,9 +180,36 @@ Ext.define('smiley360.view.OfferAcceptAddress', {
 							}
 							else {
 								//if (Ext.widget('offeracceptview')) Ext.widget('offeracceptview').hide();
-								Ext.getCmp('xOAView').hide();								
-								Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
-							};							
+								Ext.getCmp('xOAView').hide();
+								smiley360.services.getMissionDetails(smiley360.missionData.MissionDetails.MissionId, smiley360.memberData.UserId,
+									function (response) {
+										if (response.success) {
+											delete response.success;
+
+											smiley360.AllMissionsList.push(response);
+											console.log('Missiondetails is added...for mission' + smiley360.missionData.MissionDetails.MissionId);
+											//add to list
+											var additem = smiley360.missionData.MissionDetails;
+											Ext.getCmp('xDetailsView').down('#xMissionsCarousel').add(
+											new Ext.Container({
+												layout: 'vbox',
+												id: additem.MissionId,
+												items: [{
+													xtype: 'image',
+													src: smiley360.configuration.getOfferImagesUrl(additem.MissionId, additem.MissionDetails.link),
+													height: 160
+												}],
+											}));
+											if (Ext.getCmp('xDetailsView').down('#xMissionsCarousel').down('#' + additem.MissionId)) {
+												Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+											}
+										}
+										else {
+											console.log('Missiondetails is corrupted for mission' + smiley360.missionData.MissionDetails.MissionId);//show error on view
+										}
+									});
+								//Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+							};
 						}
 					}
 				}, ],
@@ -191,7 +219,7 @@ Ext.define('smiley360.view.OfferAcceptAddress', {
 			initialize: function () {
 				smiley360.adjustPopupSize(this);
 			},
-			painted: function() {
+			painted: function () {
 			},
 			show: function () {
 

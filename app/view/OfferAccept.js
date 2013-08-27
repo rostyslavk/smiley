@@ -28,7 +28,7 @@ Ext.define('smiley360.view.OfferAccept', {
 				items: [{
 					xtype: 'label',
 					cls: 'popup-title-text',
-					html: 'Accept Offer?',
+					html: 'Accept Offer',
 				}],
 			}, {
 				xtype: 'panel',
@@ -37,6 +37,7 @@ Ext.define('smiley360.view.OfferAccept', {
 				items: [{
 					xtype: 'label',
 					cls: 'popup-message-text',
+					style: 'font-size: 1em; font-family: \'din bold\';',
 					html: 'In order to send product your way, please provide us with you most current address.',
 				}, {
 					xtype: 'panel',
@@ -53,7 +54,7 @@ Ext.define('smiley360.view.OfferAccept', {
 						text: 'EDIT ADDRESS',
 						id: 'xEditAddressButton',
 						cls: 'popup-photo-button',
-						style: 'padding: 5px; font-size: 10pt;',
+						style: 'padding: 5px 10px; font-size: 0.7em; font-family: \'din bold\'; border: 0;',
 						listeners: {
 							tap: function () {
 								console.log('i am tapped');
@@ -63,17 +64,17 @@ Ext.define('smiley360.view.OfferAccept', {
 					}],
 				}, {
 					xtype: 'label',
-					//cls: 'popup-message-text',
-					id: 'addr_label_address1',
+					cls: 'offeracceptaddress-message-text',
+					id: 'addr_label_address1',					
 					html: '263 West 38th Street',
 				}, {
 					xtype: 'label',
-					//cls: 'popup-message-text',
+					cls: 'offeracceptaddress-message-text',
 					id: 'addr_label_address2',
 					html: '8th Floor',
 				}, {
 					xtype: 'label',
-					//cls: 'popup-message-text',
+					cls: 'offeracceptaddress-message-text',
 					id: 'addr_label_comp',
 					html: 'New York, NY 10018',
 				}, {
@@ -108,7 +109,7 @@ Ext.define('smiley360.view.OfferAccept', {
 						//iconCls: 'popup-post-icon',
 						listeners: {
 							tap: function () {
-								//Ext.getCmp('xOfferView').fireEvent('acceptMissionCommand', this, smiley360.memberData.UserId, smiley360.missionData.MissionDetails.MissionId);
+								Ext.getCmp('xOfferView').fireEvent('LoadContactUsCommand', this);
 								Ext.getCmp('xOAView').hide();
 							}
 						}
@@ -129,7 +130,7 @@ Ext.define('smiley360.view.OfferAccept', {
 							Ext.getCmp('xOfferView').fireEvent('acceptMissionCommand', this, smiley360.memberData.UserId, smiley360.missionData.MissionDetails.MissionId);
 							//if accepted go to
 
-							
+
 							if (smiley360.missionData.MissionDetails.MissionDetails.mission_full) {
 								//if (Ext.widget('offeracceptaddressview')) Ext.widget('offeracceptviewaddress').hide();
 
@@ -137,7 +138,34 @@ Ext.define('smiley360.view.OfferAccept', {
 							}
 							else {
 								//if (Ext.widget('offeracceptaddressview')) Ext.widget('offeracceptviewaddress').hide();
-								Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+								//Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+								smiley360.services.getMissionDetails(smiley360.missionData.MissionDetails.MissionId, smiley360.memberData.UserId,
+									function (response) {
+										if (response.success) {
+											delete response.success;
+
+											smiley360.AllMissionsList.push(response);
+											console.log('Missiondetails is added...for mission' + smiley360.missionData.MissionDetails.MissionId);
+											//add to list
+											var additem = smiley360.missionData.MissionDetails;
+											Ext.getCmp('xDetailsView').down('#xMissionsCarousel').add(
+											new Ext.Container({
+												layout: 'vbox',
+												id: additem.MissionId,
+												items: [{
+													xtype: 'image',
+													src: smiley360.configuration.getOfferImagesUrl(additem.MissionId, additem.MissionDetails.link),
+													height: 160
+												}],
+											}));
+											if (Ext.getCmp('xDetailsView').down('#xMissionsCarousel').down('#' + additem.MissionId)) {
+												Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+											}
+										}
+										else {
+											console.log('Missiondetails is corrupted for mission' + item.missionID);//show error on view
+										}
+									});
 							};
 						}
 					},

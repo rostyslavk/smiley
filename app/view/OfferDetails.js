@@ -345,7 +345,7 @@ Ext.define('smiley360.view.OfferDetails', {
 													html: 'Fun items to use when sharing about your Campbell\'s GO&trade; experience',
 													padding: '10px 20px',
 												},
-								
+
 													],
 											},
 									  {
@@ -377,8 +377,33 @@ Ext.define('smiley360.view.OfferDetails', {
 								else {
 									Ext.getCmp('xOfferView').fireEvent('acceptMissionCommand', this, smiley360.memberData.UserId, smiley360.missionData.MissionDetails.MissionId);
 
-									
-									Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+									smiley360.services.getMissionDetails(smiley360.missionData.MissionDetails.MissionId, smiley360.memberData.UserId,
+									function (response) {
+										if (response.success) {
+											delete response.success;
+											smiley360.AllMissionsList.push(response);
+											console.log('Missiondetails is added...for mission' + smiley360.missionData.MissionDetails.MissionId);
+											//add to list
+											var additem = smiley360.missionData.MissionDetails;
+											Ext.getCmp('xDetailsView').down('#xMissionsCarousel').add(
+											new Ext.Container({
+												layout: 'vbox',
+												id: additem.MissionId,
+												items: [{
+													xtype: 'image',
+													src: smiley360.configuration.getOfferImagesUrl(additem.MissionId, additem.MissionDetails.link),
+													height: 160
+												}],
+											}));
+											if (Ext.getCmp('xDetailsView').down('#xMissionsCarousel').down('#' + additem.MissionId)) {
+												Ext.getCmp('xOfferView').fireEvent('showMissionDetailsCommand', this, smiley360.missionData.MissionDetails.MissionId, false);
+											}
+										}
+										else {
+											console.log('Missiondetails is corrupted for mission' + item.missionID);//show error on view
+										}
+									});
+
 								};
 							},
 						}

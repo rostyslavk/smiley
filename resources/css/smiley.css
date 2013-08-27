@@ -435,7 +435,8 @@
 	color: #414042;
 	text-shadow: 0px 1px 3px rgba(255,255,255,0.5);
 }
-.login-btn .x-button-label {
+
+	.login-btn .x-button-label {
 		font-family: 'din bold';
 	}
 
@@ -1174,3 +1175,7 @@
 	.ddl-text-size .x-innerhtml p {
 		margin: 0px;
 	}
+
+.offeracceptaddress-message-text {
+	font-family: 'din medium';
+}

@@ -1112,9 +1112,10 @@
 	min-height: 0;
 	text-shadow: none;
 	line-height: auto;
-	width: 1.35em;
+	width: 1.4em;
 	height: 1.05em;
 	padding: 0em 0.4em;
+	margin-right: 1em;
 }
 
 

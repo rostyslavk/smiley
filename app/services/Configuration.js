@@ -7,11 +7,13 @@ smiley360.configuration.isDebugMode = function () {
 }
 
 smiley360.configuration.getServerDomain = function () {
-    return "http://smileys.ekonx.net.ua/";
+	//return "http://smileys.ekonx.net.ua/";
+	return "http://195.24.133.198";
 }
 
 smiley360.configuration.getServerUrl = function () {
-    return "http://smileys.ekonx.net.ua/index.php/";
+	//return "http://smileys.ekonx.net.ua/index.php/";
+	return "http://195.24.133.198/index.php/";
 }
 smiley360.configuration.uploaddir = function () {
 	return "/home/uat360/uploadedImages/";

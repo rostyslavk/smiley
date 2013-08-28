@@ -46,11 +46,11 @@ Ext.define('smiley360.view.Brand', {
                                         	items: [
                                                 {
                                                 	xtype: 'container',
-                                                	style: 'background-color: #efecea; padding-top: 15px;',
+                                                	style: 'background-color: #efecea; padding-top: 15px; padding-right: 10px;',
                                                 	layout: {
                                                 		type: 'vbox',
                                                 	},
-													width: '55%',
+													width: '50%',
                                                 	items: [
                                                         {
                                                         	xtype: 'label',

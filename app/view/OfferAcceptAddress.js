@@ -151,7 +151,7 @@ Ext.define('smiley360.view.OfferAcceptAddress', {
 					xtype: 'button',
 					style: 'margin: 10px 10px 0px 10px;',
 					cls: 'addr-accept-btn br-accept-btn',
-					html: 'SAVE ADDRESS<br> AND CONTINUE TO MISSION',
+					html: 'SAVE ADDRESS<br> AND CONTINUE',
 					listeners: {
 						tap: function () {
 							//save address always					

@@ -57,7 +57,7 @@ Ext.define('smiley360.view.Connect', {
 									if (Ext.getCmp('xFeaturedList').getActiveIndex() == Ext.getCmp('xFeaturedList').items.length - 2)
 									{
 										//alert('next page');
-										Ext.getCmp('xFeaturedList').setActiveItem(0);//(0, { type: 'slide', direction: 'right' })
+										//Ext.getCmp('xFeaturedList').setActiveItem(0);//(0, { type: 'slide', direction: 'right' })
 										//alert(Ext.getCmp('xSpecialOffersList').getActiveIndex());
 									}
 									else {
@@ -80,8 +80,10 @@ Ext.define('smiley360.view.Connect', {
 						xtype: 'container',
 						style: 'background-color: #F4F3F1; padding: 40px 25px;',
 						layout: 'vbox',
-						items: [{
-							xtype: 'panel',
+						items: [
+							{
+								xtype: 'panel',
+								hidden: true,
 							layout: 'hbox',
 							style: 'border-radius: 5px 5px 0px 0px;',
 							cls: 'menu-list-btn-recieve',
@@ -124,6 +126,7 @@ Ext.define('smiley360.view.Connect', {
 						{
 							xtype: 'panel',
 							layout: 'vbox',
+							hidden: true,
 							cls: 'has-shadow',
 							style: 'border-radius: 0px 0px 5px 5px; background-color: #e2ddda; margin: -20px -10px 30px -10px;',
 							id: 'search_panel',
@@ -145,18 +148,6 @@ Ext.define('smiley360.view.Connect', {
 								}],
 							}],
 						},
-						//{
-						//	xtype: 'button',
-						//	style: 'padding: 30px 0px 50px 0px; margin: 60px 0px;',
-						//	cls: 'connect-btn-browse',
-						//	text: 'BROWSE',
-						//	listeners: {
-						//		tap: function () {
-						//			this.up('#xConnectView').fireEvent('onBrowseTapCommand', this, smiley360.memberData.UserId);
-						//		},
-						//	},
-						//}
-						
 						{
 							xtype: 'panel',
 							layout: 'hbox',
@@ -172,7 +163,7 @@ Ext.define('smiley360.view.Connect', {
 								docked: 'left',
 								items: [{
 									xtype: 'label', style: 'padding: 15px 2px 15px 15px;',
-									html: 'BROWSE',
+									html: 'BROWSE BRANDS',
 								}],
 							}, {
 								xtype: 'spacer',

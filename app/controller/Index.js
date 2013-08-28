@@ -271,7 +271,7 @@ Ext.define('smiley360.controller.Index', {
 			        //smiley360.missionData.MissionDetails = response;
 			        Ext.getCmp('xOfferView').fireEvent('getMissionListCommand', this, smiley360.memberData.UserId);
 			        Ext.getCmp('xOfferView').fireEvent('getOffersCommand', this, smiley360.memberData.UserId);
-
+			        smiley360.fromRemove = true;
 			        //Ext.getCmp('xMainView').showExternalView('offerdetailsview');
 			    }
 			    else {
@@ -286,8 +286,12 @@ Ext.define('smiley360.controller.Index', {
 			    if (response.success) {
 			        delete response.success;
 			        smiley360.memberData.Offers = response;
-
+					
 			        console.log('Offers updated successfully!');
+			        if (smiley360.fromRemove) {
+			        	Ext.getCmp('xMainView').showExternalView('offersview');
+			        	smiley360.fromRemove = false;
+			        };
 			    }
 			    else {
 			        console.log('Offers update error!');//show error on view
@@ -627,7 +631,8 @@ Ext.define('smiley360.controller.Index', {
         smiley360.services.setProfile(smiley360.memberData.UserId, profArray,
             function (response) {
                 if (response.success) {
-                    console.log('Your changes aplied successfully!');
+                	console.log('Your changes aplied successfully!');
+                	Ext.getCmp('xHomeView').setUser();
                 }
                 else {
                     console.log('Set Profile return error!');//show error on view
@@ -883,6 +888,7 @@ smiley360.CategoryString = {};
 smiley360.AllMissionsList = [];
 smiley360.slideShowImages = {};
 smiley360.postReview = {};
+smiley360.fromRemove = false;
 //changeuserProfileImage
 smiley360.userProfileImage = 'http://uat.smiley360.com/images/default-profile.jpg';
 

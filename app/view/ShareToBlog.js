@@ -54,7 +54,7 @@
                     required: true,
                     id: 'xBlogUrlField',
                     cls: 'cust-input',
-                    value: 'www.wordpress.com/sampleblog',
+                    value: '',
                     listeners: {
                         keyup: function () {
                             this.up('#xView').doShareValidation();

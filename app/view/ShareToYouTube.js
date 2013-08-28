@@ -54,7 +54,7 @@
                     id: 'xUrlField',
                     required: true,
                     cls: 'cust-input',
-                    value: 'www.youttube.com/',
+                    value: '',
                 }]
             }, {
                 xtype: 'panel',

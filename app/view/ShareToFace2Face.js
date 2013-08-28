@@ -30,7 +30,7 @@
                 items: [{
                     xtype: 'label',
                     cls: 'popup-title-text',
-                    html: 'Earn 5 Smiles Sharing on Face2Face',
+                    html: 'Earn Smiles Sharing on Face2Face',
                 }, {
                     xtype: 'image',
                     docked: 'right',

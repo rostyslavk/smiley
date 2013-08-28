@@ -104,6 +104,7 @@
                 }, {
                     xtype: 'label',
                     cls: 'popup-post-comment-text',
+                    id: 'xSeedPhrase',
                     html: 'Try Campbell\'s Slow Kettle Style Soups and be sure to use this $1.00 off coupon! http://bit.ly/YxVW1D',
                 }],
             }, {
@@ -159,6 +160,9 @@
 
     setMissionId: function (missionId) {
         this.missionId = missionId;
+    },
+    setSeedPhrase: function (seedPhrase){
+    	Ext.getCmp('xSeedPhrase').setHtml(seedPhrase);
     },
 
     missionId: undefined,

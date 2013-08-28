@@ -184,6 +184,18 @@ smiley360.services.getMissionDetails = function (missionID, memberID, onComplete
 				});
         });
 }
+smiley360.services.getMissionSharingToolDetails = function (missionID, memberID, sharingTool_typeID, onCompleted) {
+	smiley360.services.ajax(
+		"getMissionSharingToolDetails",
+		{
+			missionID: missionID,
+			memberID: memberID,
+			sharingTool_typeID: sharingTool_typeID
+		},
+			onCompleted
+		);
+}
+
 
 smiley360.services.getConnectBrand = function (memberID, brandID, start, howmany, onCompleted) {
 	var brandResponse = { BrandId: brandID };

@@ -29,9 +29,10 @@
                 cls: 'popup-top-panel link-background',
                 items: [
                     {
-                        xtype: 'label',
+                    	xtype: 'label',
+                    	id: 'xTitleLabel',
                         cls: 'popup-title-text',
-                        html: 'Earn 5 Smiles Sharing a Link',
+                        html: 'Earn {0} Smiles Sharing a Link',
                     }, {
                         xtype: 'image',
                         docked: 'right',
@@ -81,5 +82,11 @@
                 this.destroy();
             }
         },
+    },
+    setEarnSmiles: function (smiles) {
+    	var xTitleLabel = this.down('#xTitleLabel');
+
+    	xTitleLabel.setHtml(Ext.String.format(
+            xTitleLabel.getHtml(), smiles));
     },
 });

@@ -32,9 +32,10 @@
                 layout: 'hbox',
                 cls: 'popup-top-panel photo-background',
                 items: [{
-                    xtype: 'label',
-                    cls: 'popup-title-text',
-                    html: 'Earn 5 Smiles uploading a Photo',
+                	xtype: 'label',
+                	id: 'xTitleLabel',
+                    cls: 'popup-title-text',                    
+                    html: 'Earn {0} Smiles uploading a Photo',
                 }, {
                     xtype: 'image',
                     docked: 'right',
@@ -176,6 +177,7 @@
                 }, {
                     xtype: 'label',
                     cls: 'popup-post-comment-text',
+                    id: 'xSeedPhrase',
                     html: 'Try Campbell\'s Slow Kettle Style Soups and be sure to use this $1.00 off coupon! http://bit.ly/YxVW1D',
                 }],
             }, {
@@ -257,5 +259,14 @@
         smiley360.services.postToUploadPhoto(shareData, function (response) {
             smiley360.setResponseStatus(shareView, response);
         });
+    },
+    setEarnSmiles: function (smiles) {
+    	var xTitleLabel = this.down('#xTitleLabel');
+
+    	xTitleLabel.setHtml(Ext.String.format(
+            xTitleLabel.getHtml(), smiles));
+    },
+    setSeedPhrase: function (seedPhrase) {
+    	Ext.getCmp('xSeedPhrase').setHtml(seedPhrase);
     },
 });

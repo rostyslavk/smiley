@@ -8,7 +8,7 @@ smiley360.configuration.isDebugMode = function () {
 
 smiley360.configuration.getServerDomain = function () {
 	//return "http://smileys.ekonx.net.ua/";
-	return "http://195.24.133.198";
+	return "http://195.24.133.198/";
 }
 
 smiley360.configuration.getServerUrl = function () {

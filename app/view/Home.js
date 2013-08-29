@@ -228,7 +228,14 @@ Ext.define('smiley360.view.Home', {
 				listeners: {
 					element: 'element',
 					tap: function () {
-						if (this.Mylink != '') window.open(oneItem.link)
+						if (this.Mylink != '') {
+							try {
+								Ext.device.Device.openURL(oneItem.link);
+							}
+							catch (err) {
+								window.open(oneItem.link, '_blank');
+							}
+						}//Ext.device.Device.openURL(oneItem.link);//window.open(oneItem.link)
 						else {
 							Ext.getCmp('xConnectView').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, this.getId().substr(6), 0, 100);
 						}

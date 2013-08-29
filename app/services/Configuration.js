@@ -8,12 +8,14 @@ smiley360.configuration.isDebugMode = function () {
 
 smiley360.configuration.getServerDomain = function () {
 	//return "http://smileys.ekonx.net.ua/";
-	return "http://195.24.133.198/";
+	//return "http://195.24.133.198/";
+	return "http://uat.smiley360.com/ws/includes/";
 }
 
 smiley360.configuration.getServerUrl = function () {
 	//return "http://smileys.ekonx.net.ua/index.php/";
-	return "http://195.24.133.198/index.php/";
+	//return "http://195.24.133.198/index.php/";
+	return "http://uat.smiley360.com/ws/includes/index.php/";
 }
 smiley360.configuration.uploaddir = function () {
 	return "/home/uat360/uploadedImages/";

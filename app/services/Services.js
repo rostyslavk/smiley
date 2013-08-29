@@ -757,13 +757,14 @@ function delayedUnMask() {
 		if (mask == false) {
 			Ext.Viewport.setMasked(false);
 		}
-	}, 200);
+	}, 3500);
 }
 
 smiley360.services.ajax = function (method, params, onCompleted) {
 	mask = true;
-	if (!Ext.Viewport.getMasked()) {
-		Ext.Viewport.setMasked(true);
+	//alert(Ext.Viewport.getMasked());
+	if (!Ext.Viewport.getMasked() || Ext.Viewport.getMasked()) {
+		Ext.Viewport.setMasked({ xtype: 'loadmask', indicator: true, message: 'We are fetching data for you...<br>Please, wait...' });
 	}
 
 	Ext.data.JsonP.request(

@@ -1,4 +1,5 @@
 var isLogined = false;
+var isLoadedApp = false;
 
 Ext.define('smiley360.controller.Index', {
 	extend: 'Ext.app.Controller',
@@ -861,6 +862,7 @@ Ext.define('smiley360.controller.Index', {
 				this.loadMemberData(memberId, function () {
 					smiley360.animateViewLeft('mainview');
 					smiley360.destroySplash();
+					isLoadedApp = true;
 				});
 
 				return;
@@ -880,6 +882,7 @@ Ext.define('smiley360.controller.Index', {
                     		me.loadMemberData(response.ID, function () {
                     			smiley360.animateViewLeft('mainview');
                     			smiley360.destroySplash();
+                    			isLoadedApp = true;
                     		});
                     	}
                     	else {
@@ -887,6 +890,7 @@ Ext.define('smiley360.controller.Index', {
 
                     		smiley360.animateViewLeft('loginview');
                     		smiley360.destroySplash();
+                    		isLoadedApp = true;
                     	}
                     });
 
@@ -899,6 +903,7 @@ Ext.define('smiley360.controller.Index', {
 
 		smiley360.animateViewLeft('loginview');
 		smiley360.destroySplash();
+		isLoadedApp = true;
 	},
 
 	missionsCounter: 0,

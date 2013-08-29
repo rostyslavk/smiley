@@ -763,9 +763,10 @@ function delayedUnMask() {
 smiley360.services.ajax = function (method, params, onCompleted) {
 	mask = true;
 	//alert(Ext.Viewport.getMasked());
-	if (!Ext.Viewport.getMasked() || Ext.Viewport.getMasked()) {
-		Ext.Viewport.setMasked({ xtype: 'loadmask', indicator: true, message: 'We are fetching data for you...<br>Please, wait...' });
-	}
+	if (isLoadedApp)
+		if (!Ext.Viewport.getMasked() || Ext.Viewport.getMasked()) {
+			Ext.Viewport.setMasked({ xtype: 'loadmask', indicator: true, message: 'We are fetching data for you...<br>Please, wait...' });
+		}
 
 	Ext.data.JsonP.request(
 	{

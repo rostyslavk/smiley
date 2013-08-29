@@ -107,6 +107,7 @@
     <Content Include="app\view\ShareToTwitter.js" />
     <Content Include="app\view\Signup.js" />
     <Content Include="build.xml" />
+    <Content Include="config.xml" />
     <Content Include="index.html" />
     <Content Include="resources\css\app.css" />
     <Content Include="resources\css\level.css" />

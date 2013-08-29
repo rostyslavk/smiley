@@ -34,7 +34,7 @@ Ext.define('smiley360.view.Brand', {
                                 {
                                 	xtype: 'container',
                                 	laytout: { type: 'vbox' },
-									width: '100%',
+                                	width: '100%',
                                 	cls: 'has-shadow',
                                 	items: [
 
@@ -50,10 +50,11 @@ Ext.define('smiley360.view.Brand', {
                                                 	layout: {
                                                 		type: 'vbox',
                                                 	},
-													width: '50%',
+                                                	width: '50%',
                                                 	items: [
                                                         {
                                                         	xtype: 'label',
+                                                        	width: 200,
                                                         	id: 'xBrandTitle',
                                                         	html: 'FENDER',
                                                         	style: 'text-align:left;font-size:1.4em; padding: 10px 15px 10px 10px; background-color: #efecea; color:#413f40; font-family: \'franklin\';',
@@ -85,7 +86,7 @@ Ext.define('smiley360.view.Brand', {
 															//		}
 															//	},
 															//},//1
-															
+
 															],
 														}
                                                 	],
@@ -138,7 +139,7 @@ Ext.define('smiley360.view.Brand', {
 																			//this.setText('FOLLOWING');
 																		}
 																		else {
-																			
+
 																			Ext.getCmp('xBrandView').fireEvent('goUnFollow', this, smiley360.memberData.UserId, smiley360.brandData.BrandId);
 																			//this.setText('FOLLOW');
 																		}
@@ -155,7 +156,7 @@ Ext.define('smiley360.view.Brand', {
 																listeners: {
 																	tap: function () {
 																		Ext.widget('reviewforfenderview').show();
-																		Ext.getCmp('xDetailsView').fireEvent('onShareConnectTapCommand', 'Brand', smiley360.memberData.UserId, smiley360.brandData.BrandDetails.smileyConnect_title, smiley360.brandData.BrandId);																		
+																		Ext.getCmp('xDetailsView').fireEvent('onShareConnectTapCommand', 'Brand', smiley360.memberData.UserId, smiley360.brandData.BrandDetails.smileyConnect_title, smiley360.brandData.BrandId);
 																	}
 																}
 															},
@@ -304,7 +305,7 @@ Ext.define('smiley360.view.Brand', {
 				}));
 		};
 	},
-	
+
 	setBrandComments: function () {
 		Ext.getCmp('xAllCommentsContainer').removeAll(true, true);
 		var BrComments = smiley360.brandData.BrandComments;

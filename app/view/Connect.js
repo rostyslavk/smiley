@@ -32,7 +32,7 @@ Ext.define('smiley360.view.Connect', {
 						cls: 'heading-text active-sign',
 						style: 'padding-left: 15px;',
 						flex: 2,
-					},],
+					}, ],
 				}, {
 					xtype: 'container',
 					style: 'background-color: #efecea',
@@ -54,8 +54,7 @@ Ext.define('smiley360.view.Connect', {
 								me = Ext.getCmp('xFeaturedList');
 								carousel.pageTurner = new Ext.util.DelayedTask(function () {
 									//alert('fr' + Ext.getCmp('xSpecialOffersList').getActiveIndex());
-									if (Ext.getCmp('xFeaturedList').getActiveIndex() == Ext.getCmp('xFeaturedList').items.length - 2)
-									{
+									if (Ext.getCmp('xFeaturedList').getActiveIndex() == Ext.getCmp('xFeaturedList').items.length - 2) {
 										//alert('next page');
 										//Ext.getCmp('xFeaturedList').setActiveItem(0);//(0, { type: 'slide', direction: 'right' })
 										//alert(Ext.getCmp('xSpecialOffersList').getActiveIndex());
@@ -84,44 +83,44 @@ Ext.define('smiley360.view.Connect', {
 							{
 								xtype: 'panel',
 								hidden: true,
-							layout: 'hbox',
-							style: 'border-radius: 5px 5px 0px 0px;',
-							cls: 'menu-list-btn-recieve',
-							listeners: {
-								element: 'element',
-								tap: function () {
-									this.up('#xConnectView').fireEvent('onSearchTapCommand', this, Ext.getCmp('BrandTitleSearchField').getValue().toString(), 10, 10);
+								layout: 'hbox',
+								style: 'border-radius: 5px 5px 0px 0px;',
+								cls: 'menu-list-btn-recieve',
+								listeners: {
+									element: 'element',
+									tap: function () {
+										this.up('#xConnectView').fireEvent('onSearchTapCommand', this, Ext.getCmp('BrandTitleSearchField').getValue().toString(), 10, 10);
+									},
 								},
-							},
-							items: [{
-								xtype: 'container',
-								docked: 'left',
-								style: 'margin-top:-5px; ',
 								items: [{
-									xtype: 'label', style: 'border-radius: 5px 0px 0px 0px; margin-top:-5px; padding: 15px 2px 15px 15px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%);',
-									html: 'SEARCH',
-								}],
-							}, {
-								xtype: 'spacer',
-								style: 'margin-top:-5px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%);',
-							}, {
-								xtype: 'container',
-								width: 40,
-								style: 'margin-top:-5px; border-radius: 0px 5px 0px 0px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%); ',
-								//docked: 'right',
-								//cls: 'btn-icon-special',
-								items: [{
-									xtype: 'image',
-									height: 24,
-									width: 23,
-									style: 'margin-top: 10px;',
+									xtype: 'container',
+									docked: 'left',
+									style: 'margin-top:-5px; ',
+									items: [{
+										xtype: 'label', style: 'border-radius: 5px 0px 0px 0px; margin-top:-5px; padding: 15px 2px 15px 15px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%);',
+										html: 'SEARCH',
+									}],
+								}, {
+									xtype: 'spacer',
+									style: 'margin-top:-5px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%);',
+								}, {
+									xtype: 'container',
+									width: 40,
+									style: 'margin-top:-5px; border-radius: 0px 5px 0px 0px; background: -webkit-linear-gradient(top, #9f9a98 0%, #423c39 100%); ',
+									//docked: 'right',
 									//cls: 'btn-icon-special',
-									//style: 'background-position: 5px 5px;',
-									src: 'resources/images/search_connect.png',
-									padding: '14px 15px',
+									items: [{
+										xtype: 'image',
+										height: 24,
+										width: 23,
+										style: 'margin-top: 10px;',
+										//cls: 'btn-icon-special',
+										//style: 'background-position: 5px 5px;',
+										src: 'resources/images/search_connect.png',
+										padding: '14px 15px',
+									}],
 								}],
-							}],
-						},
+							},
 
 						{
 							xtype: 'panel',
@@ -151,6 +150,7 @@ Ext.define('smiley360.view.Connect', {
 						{
 							xtype: 'panel',
 							layout: 'hbox',
+							style: 'margin-top: -50px;',
 							cls: 'menu-list-btn-recieve btn-icon-special',
 							listeners: {
 								element: 'element',
@@ -244,7 +244,7 @@ Ext.define('smiley360.view.Connect', {
 				style: 'background-color: white; border-radius: 5px; border-style: solid; border-width: 1px; border-color: white;',
 				src: smiley360.configuration.getResourceDomain() + '/' + oneItem.imageURL,//'resources/images/offers_logo3.png',
 				width: 100,
-			    height: 100,
+				height: 100,
 				listeners: {
 					tap: function () {
 						this.up('#xConnectView').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, oneItem.smileyconnectID, 0, 100);

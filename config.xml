@@ -1,16 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-
-<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.smiley360"
         version   = "1.0.0">
 
-	<name>Smiley360!</name>
+	<name>Smiley360</name>
 	
 	<!-- Customize your app and platform with the preference element. -->
-	<preference name="phonegap-version"           value="all" />
-	<!-- all: current version of PhoneGap -->
 	<preference name="orientation"                value="default" />
 	<!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device"              value="universal" />
@@ -23,11 +19,7 @@
 	<!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
 	<preference name="exit-on-suspend"            value="true" />
 	<!-- ios: if set to true, app will terminate when home button is pressed -->
-	<preference name="android-minSdkVersion"      value="7" />
-	<!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
-	<preference name="android-installLocation"    value="auto" />
-	<!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-
+	
 	<!-- Plugins can also be added here. -->
 	<!--
         <gap:plugin name="Example" />

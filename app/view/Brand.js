@@ -50,7 +50,7 @@ Ext.define('smiley360.view.Brand', {
                                                 	layout: {
                                                 		type: 'vbox',
                                                 	},
-                                                	width: '50%',
+                                                	width: '35%',
                                                 	items: [
                                                         {
                                                         	xtype: 'label',
@@ -95,8 +95,9 @@ Ext.define('smiley360.view.Brand', {
                                                 },
                                                 {
                                                 	xtype: 'container',
-                                                	layout: { type: 'vbox', align: 'middle' },
+                                                	layout: { type: 'vbox', },
                                                 	style: 'padding: 20px 0px;',
+													width:'50%',
                                                 	items: [
                                                             {
                                                             	xtype: 'container',
@@ -119,7 +120,7 @@ Ext.define('smiley360.view.Brand', {
                                                             	labelWidth: 'auto',
                                                             	itemsCount: 5,
                                                             	readOnly: true,
-                                                            	style: 'padding: 10px 0px 30px 0px;',
+                                                            	style: 'padding: 10px 0px 10px 0px;',
                                                             	itemCls: 'x-rating-star',
                                                             	itemHoverCls: 'x-rating-star-hover',
                                                             	disabled: true

@@ -224,13 +224,13 @@ Ext.define('smiley360.view.Home', {
 				layout: 'hbox',
 				cls: 'cont-pad',
 				id: 'SpCont' + oneItem.brandID,
-				Mylink: oneItem.link,
+				myLink: oneItem.link,
 				listeners: {
 					element: 'element',
-					tap: function () {
-						if (this.Mylink != '') {
+					tap: function () {						
+						if (this.config.myLink != "") {
 							//try {
-							Ext.device.Device.openURL(this.Mylink);
+							Ext.device.Device.openURL(this.config.myLink);
 							//}
 							//catch (err) {
 							//	window.open(this.Mylink, '_blank');
@@ -242,6 +242,7 @@ Ext.define('smiley360.view.Home', {
 					}
 				}
 			});
+			console.log(oneItemContainer.valueOf());
 			var incLabel = oneItemContainer.add(new Ext.Label({
 				width: '55%',
 				style: 'font-size: 1.1em; font-family: \'din medium\';padding-right: 10px;',

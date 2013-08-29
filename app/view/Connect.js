@@ -245,9 +245,10 @@ Ext.define('smiley360.view.Connect', {
 				src: smiley360.configuration.getResourceDomain() + '/' + oneItem.imageURL,//'resources/images/offers_logo3.png',
 				width: 100,
 				height: 100,
+				redirectId: oneItem.smileyconnectID,
 				listeners: {
 					tap: function () {
-						this.up('#xConnectView').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, oneItem.smileyconnectID, 0, 100);
+						this.up('#xConnectView').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, this.config.redirectId, 0, 100);
 					}
 				}
 			}));

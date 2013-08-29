@@ -5,6 +5,7 @@ Ext.define('smiley360.view.MissingOffers', {
 		modal: true,
 		centered: true,
 		fullscreen: true,
+		hideOnMaskTap: true,
 		id: 'xView',
 		scrollable: 'vertical',
 		cls: 'popup-panel',

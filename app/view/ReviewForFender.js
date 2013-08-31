@@ -322,7 +322,7 @@ Ext.define('smiley360.view.ReviewForFender', {
 			brandID: smiley360.brandData.BrandId,
 			text: this.down('#xReviewText').getValue(),
 			rating: this.down('#xRating').getValue(),
-			pageSize: 10,
+			imageID: 23,
 		};
 
 		smiley360.setViewStatus(commentView, smiley360.viewStatus.progress);

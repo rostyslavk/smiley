@@ -140,7 +140,7 @@ Ext.define('smiley360.view.BrowseInstruments', {
 		    padding: 50,
 		    listeners: {
 		        tap: function () {
-		            this.up('#xBrowseInstruments').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, oneBrowseIt.sc_brandID, 0, 10);
+		            this.up('#xBrowseInstruments').fireEvent('onBrandTapCommand', this, smiley360.memberData.UserId, oneBrowseIt.sc_brandID, 0, 100);
 		        }
 		    }
 		}));

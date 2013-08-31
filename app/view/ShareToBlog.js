@@ -50,10 +50,11 @@
                     cls: 'popup-top-text',
                     html: 'Submit a share-blog URL',
                 }, {
-                    xtype: 'textfield',
+                    xtype: 'urlfield',
                     required: true,
                     id: 'xBlogUrlField',
                     cls: 'cust-input',
+                    autoCapitalize: false,
                     value: '',
                     listeners: {
                         keyup: function () {
@@ -173,4 +174,11 @@
     },
 
     missionId: undefined,
+
+    setLink: function (link_to_set)
+    {
+    	var xBlogUrlField = this.down('#xBlogUrlField');
+    	xBlogUrlField.setValue(link_to_set);
+    }
+	
 });

@@ -69,7 +69,8 @@ Ext.application({
         'SideMenu',
 		'BrowseSearch',
         'Tutorial',
-		'MissionIsFull'
+		'MissionIsFull',
+		'ConnectPopUp'
     ],
     icon: {
         '36': 'resources/icons/Icon_Android36.png',

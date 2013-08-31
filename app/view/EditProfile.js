@@ -80,8 +80,8 @@ Ext.define('smiley360.view.EditProfile', {
 					autoCapitalize: false,
 					required: true
 				}, {
-					//xtype: 'datepickerfield',
-					xtype: 'textfield',
+					xtype: 'datepickerfield',
+					//xtype: 'textfield',
 					cls: 'cust-input cust-input-ddl',
 					name: 'birthday',
 					itemId: 'calDob',
@@ -89,14 +89,14 @@ Ext.define('smiley360.view.EditProfile', {
 					name: 'calDob',
 					ui: 'light',
 					readOnly: true,
-					//picker: {
-					//	yearFrom: 1900,
-					//},
+					picker: {
+						yearFrom: 1900,
+					},
 					placeHolder: 'Date of birth',
 					required: true,
 					listeners: {
 						painted: function () {
-							if (smiley360.memberData.Profile.birthdate == null)
+							if (smiley360.memberData.Profile.birthdate == "" || smiley360.memberData.Profile.birthdate == null)
 								this.setReadOnly(false);
 						}
 					}
@@ -111,10 +111,14 @@ Ext.define('smiley360.view.EditProfile', {
 					readOnly: true,
 					listeners: {
 						painted: function () {
-							if (smiley360.memberData.Profile.gender == null)
+							if (smiley360.memberData.Profile.gender == "" || smiley360.memberData.Profile.birthdate == null)
 								this.setReadOnly(false);
 						}
-					}
+					},
+					options: [
+						{ text: 'Female', value: 0 },
+						{ text: 'Male', value: 1 },
+					]
 				}],//end items top vbox
 			}, {
 				xtype: 'spacer',

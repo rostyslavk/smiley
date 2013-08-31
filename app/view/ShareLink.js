@@ -51,15 +51,17 @@
                     xtype: 'textfield',
                     id: 'xLinkField',
                     cls: 'cust-input',
-                    value: 'http://smiley360.com/768768768',
-                    readOnly: true,
+                    value: '',
                 }]
             }, {
                 xtype: 'panel',
                 cls: 'popup-button-panel',
                 items: [{
                     xtype: 'button',
-                    text: 'DONE',
+                    text: 'COPY',
+                    icon: 'resources/images/share-copy.png',
+                    iconAlign: 'right',
+                    iconCls: 'popup-post-icon',
                     cls: 'popup-submit-button',
                     listeners: {
                         tap: function () {
@@ -89,4 +91,9 @@
     	xTitleLabel.setHtml(Ext.String.format(
             xTitleLabel.getHtml(), smiles));
     },
+    setLink: function (link_to_set)
+    {
+    	var xLinkField = this.down('#xLinkField');
+    	xLinkField.setValue(link_to_set);
+    }
 });

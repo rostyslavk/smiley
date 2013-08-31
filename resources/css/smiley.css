@@ -109,7 +109,7 @@
 
 .popup-checkbox {
 	min-height: 0px;
-	border: none;
+	border: 0;
 	background-color: transparent !important;
 }
 
@@ -124,6 +124,7 @@
 		min-height: 0px;
 		padding: 0px;
 		border: 1px;
+		border-radius: 3px;
 		border-style: inset;
 		background-color: white;
 	}
@@ -233,7 +234,7 @@
 }
 
 .popup-message-text {
-	font-size: 11pt;
+	font-size: 0.8em;
 	font-family: din bold;
 	word-wrap: break-word;
 	color: #58595B;
@@ -273,8 +274,8 @@
 
 .popup-submit-button {
 	min-height: 52px;
-	font-size: 14pt;
-	font-family: din medium;
+	font-size: 1.1em;
+	font-family: din bold;
 	color: white;
 	background: -webkit-linear-gradient(top, #6c6261 0%, #564c4a 100%);
 }

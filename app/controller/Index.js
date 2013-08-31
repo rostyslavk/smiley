@@ -52,7 +52,7 @@ Ext.define('smiley360.controller.Index', {
 			detailsView: {
 				showMissionDetailsCommand: 'showMissionDetailsCommand',
 				onShareConnectTapCommand: 'onShareConnectTapCommand',
-				goSetSeedPhrase: 'goSetSeedPhrase'
+				goSetSharingInfo: 'goSetSharingInfo'
 			},
 			offersView: {
 				LoadOfferDetailsCommand: 'LoadOfferDetailsCommand',
@@ -540,7 +540,7 @@ Ext.define('smiley360.controller.Index', {
 
 	},
 
-	goSetSeedPhrase: function (view, missionID, memberID, sharingTool_typeID, shareView) {
+	goSetSharingInfo: function (view, missionID, memberID, sharingTool_typeID, shareView) {
 		var me = this;
 		console.log('Setted seed phrase successfully!');
 		smiley360.services.getMissionSharingToolDetails(missionID, memberID, sharingTool_typeID,
@@ -548,11 +548,17 @@ Ext.define('smiley360.controller.Index', {
             	if (response.success) {
             		//delete response.success;
             		if (response) {
+            			if (response[0].link != null)
+            				if (shareView.setLink) {
+            					shareView.setLink(response[0].link);
+            				};
             			if (response[0].seedphrase != null) {
 
             				if (shareView.setSeedPhrase) {
             					shareView.setSeedPhrase(response[0].seedphrase);
             				};
+
+
             			}
 
             		};
@@ -956,7 +962,8 @@ smiley360.setResponseStatus = function (view, response, states) {
 	var status = response.success ?
         smiley360.viewStatus.successful :
         smiley360.viewStatus.unsuccessful;
-
+	if (!response.success || response.status == 'failed')
+		smiley360.viewStatus.unsuccessful;
 	smiley360.setViewStatus(view, status, states);
 }
 

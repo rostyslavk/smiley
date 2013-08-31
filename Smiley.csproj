@@ -76,6 +76,7 @@
     <Content Include="app\view\BrandImage.js" />
     <Content Include="app\view\ContactUs.js" />
     <Content Include="app\view\BrowseSearch.js" />
+    <Content Include="app\view\ConnectPopUp.js" />
     <Content Include="app\view\MissingOffers.js" />
     <Content Include="app\view\MissionIsFull.js" />
     <Content Include="app\view\MissionCompleted.js" />
